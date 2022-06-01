@@ -1,0 +1,20 @@
+
+version: '3.3'
+services:
+  apipmb:
+    container_name: 'apipmb'
+    build: './'
+    ports:
+      - '8060:8060'
+    volumes:
+      - './:/go/src/app'
+    depends_on:
+      - 'mongopmb'
+  mongopmb:
+    image: 'mongo:4.4.6'
+    container_name: 'mongopmb'
+    volumes:
+      - /home/mongodb/poormanbank:/data/db
+    ports:
+      - '27100:27017'
+    restart: unless-stopped
