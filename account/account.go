@@ -1,5 +1,5 @@
 package account
 
-func addAccount() {
+func AddAccount() {
 
 }
